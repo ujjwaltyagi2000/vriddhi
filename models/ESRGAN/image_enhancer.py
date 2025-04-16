@@ -3,15 +3,18 @@ import glob
 import cv2
 import numpy as np
 import torch
+
 # import RRDBNet_arch as arch
 from models.ESRGAN import RRDBNet_arch as arch
 
 # model_path = '../models/ESRGAN/models/RRDB_ESRGAN_x4.pth'  # models/RRDB_ESRGAN_x4.pth OR models/RRDB_PSNR_x4.pth
-device = torch.device('cpu')  # if you want to run on CPU, change 'cuda' -> cpu
+device = "cuda" if torch.cuda.is_available() else "cpu"
+# if you want to run on CPU, change 'cuda' -> cpu
 # device = torch.device('cpu')
 
 # test_img_folder = 'LR/*'
 # test_img_folder = cv_folder
+
 
 def enhance_image(test_img_folder, model_path):
     model = arch.RRDBNet(3, 3, 64, 23, gc=32)
@@ -19,7 +22,7 @@ def enhance_image(test_img_folder, model_path):
     model.eval()
     model = model.to(device)
 
-    print('Model path {:s}. \nTesting...'.format(model_path))
+    print("Model path {:s}. \nTesting...".format(model_path))
 
     idx = 0
     for path in glob.glob(test_img_folder):
@@ -37,4 +40,4 @@ def enhance_image(test_img_folder, model_path):
             output = model(img_LR).data.squeeze().float().cpu().clamp_(0, 1).numpy()
         output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round()
-        cv2.imwrite('results/{:s}.png'.format(base), output)
+        cv2.imwrite("results/{:s}.png".format(base), output)

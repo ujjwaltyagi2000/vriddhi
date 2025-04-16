@@ -3,6 +3,7 @@
 frames
 footage
 results
+test_images
 
 # file type
 *.svg

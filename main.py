@@ -37,74 +37,48 @@ class imageWindow(QMainWindow):
     def __init__(self):
         super(imageWindow, self).__init__()
 
-        uic.loadUi("UI/imagewindow.ui", self)
+        uic.loadUi("UI/imagewindow2.ui", self)
 
-        # Defining custom widgets for vriddhi (si- select image, sf- select folder)
-        self.button_si = self.findChild(QPushButton, "pushButton")
-        self.path_si = self.findChild(QTextEdit, "textEdit")
-        self.cancel_si = self.findChild(QPushButton, "pushButton_2")
-        self.button_sf = self.findChild(QPushButton, "pushButton_3")
-        self.cwd = self.findChild(QPushButton, "pushButton_6")
-        self.path_sf = self.findChild(QTextEdit, "textEdit_2")
-        self.cancel_sf = self.findChild(QPushButton, "pushButton_4")
-        self.execute = self.findChild(QPushButton, "pushButton_5")
-        self.outputlabel = self.findChild(QLabel, "label_3")
+        # Defining custom widgets for vriddhi window2 (snf - select new folder)
+        self.cancel_snf = self.findChild(QPushButton, "pushButton_22")
+        self.path_snf = self.findChild(QTextEdit, "textEdit")
+        self.button_snf = self.findChild(QPushButton, "pushButton_33")
 
-        # Actions:
-        self.button_si.clicked.connect(self.image_get)
-        self.cancel_si.clicked.connect(self.path_si_clear)
+        self.enhance = self.findChild(QPushButton, "pushButton_55")
+        self.outputlabel2 = self.findChild(QLabel, "label_33")
 
-        self.button_sf.clicked.connect(self.folder_get)
-        self.cwd.clicked.connect(self.cwd_store)
-        self.cancel_sf.clicked.connect(self.path_sf_clear)
+        # self.convert = self.findChild(QPushButton, "pushButton_66")
+        # self.outputlabel3 = self.findChild(QLabel, "label_44")
 
-        self.execute.clicked.connect(self.run)
+        # Actions
+        self.cancel_snf.clicked.connect(self.path_snf_clear)
+        self.button_snf.clicked.connect(self.folder_new_get)
 
-        # show app
-        self.show()
+        self.enhance.clicked.connect(self.enhance_func)
+        # self.convert.clicked.connect(self.convert_func)
 
-    # Functions:
-    def image_get(self):
-        file_path = QFileDialog.getOpenFileName(
-            self,
-            "Selected images will be enhanced:",
-            ".",
-            "Image Files (*.png *.jpg *.jpeg)",
-        )
-        if file_path:
-            self.path_si.setText(file_path[0])
-        global cv_file
-        cv_file = self.path_si.toPlainText()
+    def path_snf_clear(self):
+        self.path_snf.setText("")
+        self.outputlabel2.setText("Enhance kardo na...")
 
-    def path_si_clear(self):
-        self.path_si.setText("")
+    def folder_new_get(self):
+        folder_new_path = QFileDialog.getExistingDirectory(None, "Select Folder")
+        if folder_new_path:
+            self.path_snf.setText(folder_new_path)
+        global enhance_folder
+        enhance_folder = self.path_snf.toPlainText()
+        print(enhance_folder)
 
-    def folder_get(self):
-        folder_path = QFileDialog.getExistingDirectory(None, "Select Folder")
-        if folder_path:
-            self.path_sf.setText(folder_path)
-        global cv_folder
-        cv_folder = self.path_sf.toPlainText()
-
-    def cwd_store(self):
-        folder_path = os.getcwd()
-        if folder_path:
-            self.path_sf.setText(folder_path)
-        global cv_folder
-        cv_folder = self.path_sf.toPlainText()
-
-    def path_sf_clear(self):
-        self.path_sf.setText("")
-
-    def run(self):
+    def enhance_func(self):
+        # label outputlabel2
+        self.outputlabel2.setText("Wait...Processing")
         try:
-            # runs model after app execution is terminated
             model_path = "models/ESRGAN/models/RRDB_ESRGAN_x4.pth"
-            images_path = cv_file
-            ie.enhance_image(images_path, model_path, output_path=cv_folder)
-            self.outputlabel.setText(f"Enhancement Successful!!!!")
+            images_path = enhance_folder + "/*"
+            ie.enhance_image(images_path, model_path)
+            self.outputlabel2.setText("Enhanced Images saved")
         except:
-            self.outputlabel.setText(f"Invalid selections")
+            self.outputlabel2.setText("Invalid arguments")
 
 
 class videoWindow(QMainWindow):

@@ -18,39 +18,59 @@
     <normaloff>Vridhi_icon.jpg</normaloff>Vridhi_icon.jpg</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(146, 184, 255);</string>
+   <string notr="true">background-color: rgb(225, 246, 250);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="btnEnhanceImage">
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>125</y>
+      <y>225</y>
       <width>400</width>
-      <height>400</height>
+      <height>200</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Enhance Image</string>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
-    <string notr="true">background-color: #89fafa;</string>
+    <string notr="true">background-color: rgb(10, 193, 210);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnEnhanceVideo">
     <property name="geometry">
      <rect>
       <x>650</x>
-      <y>125</y>
+      <y>225</y>
       <width>400</width>
-      <height>400</height>
+      <height>200</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="text">
      <string>Enhance Video</string>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
-    <string notr="true">background-color: #89fafa;</string>
+    <string notr="true">background-color: rgb(10, 193, 210);</string>
     </property>
    </widget>
   </widget>

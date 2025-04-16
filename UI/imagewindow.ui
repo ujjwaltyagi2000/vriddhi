@@ -18,7 +18,7 @@
     <normaloff>Vridhi_icon.jpg</normaloff>Vridhi_icon.jpg</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(146, 184, 255);</string>
+   <string notr="true">background-color: rgb(225, 246, 250);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -40,7 +40,7 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #89fafa;</string>
+     <string notr="true">background-color: rgb(10, 193, 210);</string>
     </property>
     <property name="text">
      <string>Select Image Folder </string>
@@ -56,7 +56,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 255, 255);</string>
+     <string notr="true">background-color: rgb(225, 246, 250);</string>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -104,7 +104,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(170, 255, 255);</string>
+     <string notr="true">background-color: rgb(10, 193, 210);</string>
     </property>
     <property name="text">
      <string>Select folder</string>
@@ -120,7 +120,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </rect>
     </property>
     <property name="text">
-     <string>Selected video will be converted into image sequence:</string>
+     <string>Images within the selected folder will be enhanced :</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -213,10 +213,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(148, 222, 222);</string>
+     <string notr="true">background-color: rgb(10, 193, 210);</string>
     </property>
     <property name="text">
-     <string>Execute</string>
+     <string>Enhance Images</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

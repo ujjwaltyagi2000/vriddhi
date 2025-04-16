@@ -42,7 +42,15 @@ python main.py
 To use Vriddhi, follow these steps:
 
 1. Open the application.
+
+   ![Welcome Screen](screenshots/welcome-screen.png)
+
 2. Click on the "Enhance Image" or "Enhance Video" button to select the file you want to upscale.
+
+   ![Image Enhancement Window](screenshots/image-enhance.png)
+
+   ![Video Enhancement Window](screenshots/video-enhance.png)
+
 3. Select the path where you wish to save the enhanced result.
 4. Once the process is complete, you will be able to see the 4x upscaled result in your selected folder.
 
